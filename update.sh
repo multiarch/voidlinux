@@ -7,4 +7,9 @@ if [ ! -f armhf-latest/qemu-arm-static ]; then (
 ); fi
 					       
 docker build -t multiarch/voidlinux:armhf-latest armhf-latest
+docker tag multiarch/voidlinux:armhf-latest multiarch/voidlinux:armhf
 docker run -it --rm multiarch/voidlinux:armhf-latest uname -a
+
+docker build -t multiarch/voidlinux:amd64-latest x86_64-latest
+docker tag multiarch/voidlinux:amd64-latest multiarch/voidlinux:amd64
+docker run -it --rm multiarch/voidlinux:amd64-latest uname -a
